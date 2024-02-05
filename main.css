@@ -1,7 +1,83 @@
-body,
-html {
-  /* height:100%; */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  margin: 0px;
-  padding: 0px;
+#app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #f8f8f8;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav li {
+  padding: 0 10px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.store-item {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box; /* Added to include padding and border in the element's width and height */
+}
+
+.store-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem; /* Adds space between the image and the text below */
+}
+
+.store-item p {
+  margin: 0.5rem 0;
+}
+
+.store-item > div {
+  margin-top: auto; /* Pushes the rating/price/stock div to the bottom */
+}
+
+/* Flex container for rating, price, and stock information */
+.store-item > div:last-child {
+  display: flex;
+  justify-content: space-between; /* This will space out the rating, price, and stock evenly */
+  align-items: center;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f8f8f8;
+}
+
+@media (min-width: 1200px) {
+  main {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
