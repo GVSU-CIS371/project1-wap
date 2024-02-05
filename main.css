@@ -1,25 +1,31 @@
+/* Base styles */
 body, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, sans-serif; /* You can choose any font you like */
 }
 
 #app {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  height: 100vh;
+  min-height: 100vh;
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* Light text */
 }
 
+/* Header styles */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  background-color: #f8f8f8;
+  padding: 1rem 2rem;
+  background-color: #1f1f1f; /* Slightly lighter than the background for contrast */
 }
 
 header h1 {
   margin: 0;
+  color: #00c88c; /* A color that stands out, like a brand color */
 }
 
 nav ul {
@@ -33,51 +39,84 @@ nav li {
   padding: 0 10px;
 }
 
+nav a {
+  text-decoration: none;
+  color: #ffffff; /* White text for links */
+  transition: color 0.3s ease; /* Transition for a hover effect */
+}
+
+nav a:hover {
+  color: #00c88c; /* Highlight color on hover */
+}
+
+/* Main content styles */
 main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
+  gap: 20px;
+  padding: 20px;
 }
 
 .store-item {
-  border: 1px solid #ccc;
-  padding: 1rem;
+  border: 1px solid #333333;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #1e1e1e;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  box-sizing: border-box; /* Added to include padding and border in the element's width and height */
+  margin-bottom: 20px; /* Add space at the bottom of each item */
+  box-sizing: border-box; /* Include padding and border in the width and height */
 }
 
 .store-item img {
   max-width: 100%;
   height: auto;
-  margin-bottom: 1rem; /* Adds space between the image and the text below */
+  border-radius: 8px; /* Rounded corners for images */
 }
 
 .store-item p {
   margin: 0.5rem 0;
 }
 
-.store-item > div {
-  margin-top: auto; /* Pushes the rating/price/stock div to the bottom */
+/* Bold the product names */
+.store-item p:first-of-type {
+  font-weight: bold;
+  color: #ffffff; /* Ensure the product names are white for better visibility */
 }
 
-/* Flex container for rating, price, and stock information */
-.store-item > div:last-child {
-  display: flex;
-  justify-content: space-between; /* This will space out the rating, price, and stock evenly */
-  align-items: center;
+
+.store-item span {
+  display: inline-block;
+  margin-right: 10px;
+  color: #a9a9a9; /* Lighter text color for less important information */
 }
 
+.store-item span:last-child {
+  margin-right: 0;
+}
+
+/* Footer styles */
 footer {
   text-align: center;
   padding: 1rem;
-  background-color: #f8f8f8;
+  background-color: #1f1f1f; /* Slightly lighter than the background for contrast */
+  color: #ffffff;
+}
+
+/* Rating, Price, Stock container */
+.store-item-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Push to bottom */
+  font-weight: bold; /* Make the text bold for emphasis */
 }
 
 @media (min-width: 1200px) {
   main {
     grid-template-columns: repeat(4, 1fr);
+  }
+  .store-item {
+    margin-bottom: 20px; /* Adjust if more space is needed between rows */
   }
 }
