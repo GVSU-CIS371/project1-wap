@@ -58,14 +58,16 @@ main {
 }
 
 .store-item {
-  border: 1px solid #333333;
-  padding: 16px;
-  border-radius: 8px;
-  background-color: #1e1e1e;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px; /* Add space at the bottom of each item */
-  box-sizing: border-box; /* Include padding and border in the width and height */
+  justify-content: space-between; /* Ensure content is pushed to top and bottom */
+  padding: 16px;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  margin-bottom: 10px;
+  position: relative; /* Allows absolute positioning relative to this container */
+  box-sizing: border-box;
 }
 
 .store-item img {
@@ -81,18 +83,43 @@ main {
 /* Bold the product names */
 .store-item p:first-of-type {
   font-weight: bold;
-  color: #ffffff; /* Ensure the product names are white for better visibility */
+  color: #ffffff9c; /* Ensure the product names are white for better visibility */
 }
-
 
 .store-item span {
-  display: inline-block;
-  margin-right: 10px;
-  color: #a9a9a9; /* Lighter text color for less important information */
+  display: block; /* Default display to block for individual manipulation */
+  position: absolute; /* Absolute position to place them at specific locations */
+  width: 33%; /* Give each span an equal width of a third of the container */
+  color: #ffffff9c;
 }
 
-.store-item span:last-child {
-  margin-right: 0;
+.store-item span:first-of-type {
+  display: inline;
+  left: 15%;
+  bottom: 0;
+  text-align: left; /* Align text to the left */
+}
+
+.store-item span:nth-of-type(2) {
+  display: inline;
+  left: 33%; /* Position it starting from one-third of the container's width */
+  bottom: 0;
+  text-align: center; /* Center the text */
+}
+
+.store-item span:last-of-type {
+  display: inline;
+  right: 15%;
+  bottom: 0;
+  text-align: right; /* Align text to the right */
+}
+
+.store-item::after {
+  content: '';
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: auto; /* Ensure it's at the bottom */
 }
 
 /* Footer styles */
@@ -103,20 +130,8 @@ footer {
   color: #ffffff;
 }
 
-/* Rating, Price, Stock container */
-.store-item-details {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: auto; /* Push to bottom */
-  font-weight: bold; /* Make the text bold for emphasis */
-}
-
 @media (min-width: 1200px) {
   main {
     grid-template-columns: repeat(4, 1fr);
-  }
-  .store-item {
-    margin-bottom: 20px; /* Adjust if more space is needed between rows */
   }
 }
