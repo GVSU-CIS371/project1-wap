@@ -74,20 +74,20 @@ main {
 }
 
 .store-item p {
-  margin-bottom: 0rem; /* Adjusted to add space between the description and the details */
+  margin-bottom: 25px;
 }
 
 .store-item p:first-of-type {
   font-weight: bold;
   color: #ffffff9c;
-  margin-top: Top; /* Consistent spacing */
+  margin-top: Top;
+  margin-bottom: -5px;
 }
 
-/* Detail span alignment */
 .store-item > span {
   display: flex;
-  justify-content: space-between; /* Aligns rating, price, and stock information */
-  margin-top: auto; /* Adds space between the product description and these details */
+  justify-content: space-between;
+  margin-top: auto;
   color: #ffffff9c;
 }
 
